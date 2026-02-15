@@ -198,7 +198,7 @@ export default function NewBriefFormPage() {
                     {...register('role')}
                     placeholder="e.g., Senior Designer, Software Engineer"
                   />
-                  {errors.role && (
+                  {'role' in errors && errors.role && (
                     <p className="mt-1 text-sm text-red-600">
                       {errors.role.message as string}
                     </p>
@@ -247,7 +247,7 @@ export default function NewBriefFormPage() {
                     placeholder="Paste the full job description here... (or upload PDF below)"
                     rows={6}
                   />
-                  {errors.jobPosting && (
+                  {'jobPosting' in errors && errors.jobPosting && (
                     <p className="mt-1 text-sm text-red-600">
                       {errors.jobPosting.message as string}
                     </p>
@@ -301,7 +301,7 @@ export default function NewBriefFormPage() {
                       <SelectItem value="panel">Panel Interview</SelectItem>
                     </SelectContent>
                   </Select>
-                  {errors.format && (
+                  {'format' in errors && errors.format && (
                     <p className="mt-1 text-sm text-red-600">
                       {errors.format.message as string}
                     </p>
@@ -344,7 +344,7 @@ export default function NewBriefFormPage() {
                       {...register('contactName')}
                       placeholder="e.g., John Smith"
                     />
-                    {errors.contactName && (
+                    {'contactName' in errors && errors.contactName && (
                       <p className="mt-1 text-sm text-red-600">
                         {errors.contactName.message as string}
                       </p>
@@ -358,7 +358,7 @@ export default function NewBriefFormPage() {
                       {...register('contactRole')}
                       placeholder="e.g., VP of Sales"
                     />
-                    {errors.contactRole && (
+                    {'contactRole' in errors && errors.contactRole && (
                       <p className="mt-1 text-sm text-red-600">
                         {errors.contactRole.message as string}
                       </p>
@@ -373,7 +373,7 @@ export default function NewBriefFormPage() {
                     {...register('product')}
                     placeholder="e.g., CRM software, Marketing automation"
                   />
-                  {errors.product && (
+                  {'product' in errors && errors.product && (
                     <p className="mt-1 text-sm text-red-600">
                       {errors.product.message as string}
                     </p>
@@ -395,7 +395,7 @@ export default function NewBriefFormPage() {
                       <SelectItem value="closing">Closing</SelectItem>
                     </SelectContent>
                   </Select>
-                  {errors.dealStage && (
+                  {'dealStage' in errors && errors.dealStage && (
                     <p className="mt-1 text-sm text-red-600">
                       {errors.dealStage.message as string}
                     </p>
