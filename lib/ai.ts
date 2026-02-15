@@ -1,10 +1,18 @@
 import OpenAI from 'openai';
 
 // Moonshot API is OpenAI-compatible
-const moonshot = new OpenAI({
-  apiKey: process.env.MOONSHOT_API_KEY!,
-  baseURL: 'https://api.moonshot.ai/v1', // Global endpoint
-});
+// Lazy initialization to avoid build-time errors
+let moonshotClient: OpenAI | null = null;
+
+function getMoonshotClient() {
+  if (!moonshotClient) {
+    moonshotClient = new OpenAI({
+      apiKey: process.env.MOONSHOT_API_KEY!,
+      baseURL: 'https://api.moonshot.ai/v1', // Global endpoint
+    });
+  }
+  return moonshotClient;
+}
 
 export async function generateJobInterviewBrief(data: {
   companyName: string;
@@ -59,7 +67,7 @@ Dress code, what to bring, timing
 
 Format: Use markdown headers. Be specific, actionable, and concise.`;
 
-  const response = await moonshot.chat.completions.create({
+  const response = await getMoonshotClient().chat.completions.create({
     model: 'moonshot-v1-32k',
     messages: [{ role: 'user', content: prompt }],
     temperature: 0.7,
@@ -121,7 +129,7 @@ What to close for in this call
 
 Format: Actionable, confident tone, specific details only.`;
 
-  const response = await moonshot.chat.completions.create({
+  const response = await getMoonshotClient().chat.completions.create({
     model: 'moonshot-v1-32k',
     messages: [{ role: 'user', content: prompt }],
     temperature: 0.7,
