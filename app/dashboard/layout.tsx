@@ -16,49 +16,57 @@ export default async function DashboardLayout({
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="border-b bg-white">
+    <div className="min-h-screen">
+      <nav className="border-b border-white/10 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 justify-between">
-            <div className="flex">
-              <Link href="/dashboard" className="flex items-center cursor-pointer">
-                <span className="text-xl font-bold text-gray-900">
-                  Meet&Brief
-                </span>
+          <div className="flex h-20 items-center justify-between">
+            <div className="flex items-center gap-12">
+              <Link href="/dashboard" className="group flex items-center gap-3 cursor-pointer">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-yellow-400 group-hover:shadow-[0_0_10px_rgba(250,244,61,0.5)] transition-all" />
+                  <span className="text-2xl font-black tracking-tighter text-white">
+                    MEET<span className="text-yellow-400">&</span>BRIEF
+                  </span>
+                </div>
               </Link>
-              <div className="ml-10 flex items-center space-x-4">
+              <div className="flex items-center gap-8">
                 <Link
                   href="/dashboard"
-                  className="text-gray-700 hover:text-gray-900 cursor-pointer"
+                  className="text-sm font-semibold text-gray-400 hover:text-yellow-400 transition-colors cursor-pointer"
                 >
-                  Dashboard
+                  DASHBOARD
                 </Link>
                 <Link
                   href="/dashboard/briefs/new"
-                  className="text-gray-700 hover:text-gray-900 cursor-pointer"
+                  className="text-sm font-semibold text-gray-400 hover:text-yellow-400 transition-colors cursor-pointer"
                 >
-                  New Brief
+                  NEW BRIEF
                 </Link>
                 {session.user.role === 'ADMIN' && (
                   <Link
                     href="/admin"
-                    className="text-gray-700 hover:text-gray-900 cursor-pointer"
+                    className="text-sm font-semibold text-yellow-400 cursor-pointer"
                   >
-                    Admin
+                    ADMIN
                   </Link>
                 )}
               </div>
             </div>
-            <div className="flex items-center">
-              <span className="mr-4 text-sm text-gray-700">
-                {session.user.email}
-              </span>
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-3">
+                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center text-sm font-bold text-black">
+                  {session.user.email?.[0].toUpperCase()}
+                </div>
+                <span className="text-sm text-gray-400">
+                  {session.user.email}
+                </span>
+              </div>
               <SignOutButton />
             </div>
           </div>
         </div>
       </nav>
-      <main>{children}</main>
+      <main className="relative z-10">{children}</main>
     </div>
   );
 }
