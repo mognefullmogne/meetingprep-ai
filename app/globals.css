@@ -5,22 +5,22 @@
     /* Dark theme with yellow accents - always on */
     --background: 0 0% 8%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 12%;
+    --card: 0 0% 14%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 10%;
+    --popover: 0 0% 12%;
     --popover-foreground: 0 0% 98%;
     --primary: 64 96% 52%; /* Yellow accent */
     --primary-foreground: 0 0% 10%;
-    --secondary: 0 0% 18%;
+    --secondary: 0 0% 20%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 22%;
+    --muted-foreground: 0 0% 75%; /* Lighter for better contrast */
     --accent: 64 96% 52%; /* Yellow accent */
     --accent-foreground: 0 0% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 25%;
-    --input: 0 0% 18%;
+    --border: 0 0% 30%; /* More visible borders */
+    --input: 0 0% 20%;
     --ring: 64 96% 52%;
     --radius: 0.25rem;
   }
@@ -37,7 +37,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
 
-  /* Grid background pattern */
+  /* Grid background pattern - more visible */
   body::before {
     content: '';
     position: fixed;
@@ -46,14 +46,14 @@
     width: 100%;
     height: 100%;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     pointer-events: none;
     z-index: 0;
   }
 
-  /* Geometric border effect */
+  /* Geometric border effect - more visible */
   body::after {
     content: '';
     position: fixed;
@@ -61,7 +61,7 @@
     left: 20px;
     right: 20px;
     bottom: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     pointer-events: none;
     z-index: 1;
   }
@@ -102,5 +102,28 @@
     border-color: hsl(var(--primary));
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(250, 244, 61, 0.1);
+  }
+
+  /* High contrast text utilities */
+  .text-high-contrast {
+    color: hsl(0 0% 98%);
+  }
+
+  .text-mid-contrast {
+    color: hsl(0 0% 80%);
+  }
+
+  .text-subtle {
+    color: hsl(0 0% 65%);
+  }
+
+  /* Ensure inputs and selects have good contrast */
+  input, textarea, select {
+    color: hsl(0 0% 98%);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: hsl(0 0% 50%);
   }
 }

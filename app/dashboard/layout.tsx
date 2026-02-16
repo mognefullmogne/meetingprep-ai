@@ -57,7 +57,7 @@ export default async function DashboardLayout({
                 <div className="h-8 w-8 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center text-sm font-bold text-black">
                   {session.user.email?.[0].toUpperCase()}
                 </div>
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-gray-300">
                   {session.user.email}
                 </span>
               </div>

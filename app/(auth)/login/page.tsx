@@ -31,7 +31,7 @@ export default function LoginPage() {
               <br />
               <span className="text-yellow-400">&</span> BRIEF
             </h1>
-            <p className="max-w-xl text-xl text-gray-400">
+            <p className="max-w-xl text-xl text-gray-300">
               Never walk into a meeting unprepared. Generate intelligent briefs powered by AI in seconds.
             </p>
           </div>
@@ -66,7 +66,7 @@ export default function LoginPage() {
               </span>
             </Button>
 
-            <div className="flex items-center gap-4 text-sm text-gray-500">
+            <div className="flex items-center gap-4 text-sm text-gray-300">
               <div className="flex items-center gap-2">
                 <div className="h-1 w-1 rounded-full bg-yellow-400" />
                 <span>Free forever</span>
